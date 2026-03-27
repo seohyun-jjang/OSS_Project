@@ -63,7 +63,7 @@ Inbody-Based Diet Recommendation System
 
 ## 2. System Context Diagram
 
-<img width="700" alt="System Context Diagram" src="" />
+<img width="700" alt="System Context Diagram" src="https://github.com/seohyun-jjang/OSS_Project/blob/main/system_diagram.png?raw=true" />
 
 ### User
 사용자는 시스템을 이용하는 일반 사용자이다. 사용자는 회원가입 및 로그인 후 자신의 기본 정보와 인바디 데이터를 입력할 수 있다. 또한 건강 목표를 설정하고, 추천 식단을 조회하며, 하루 동안 섭취한 식단을 기록할 수 있다. 사용자는 기록된 식단 내역과 피드백 정보를 통해 자신의 식습관과 건강 상태를 확인할 수 있다.
