@@ -57,3 +57,37 @@ Inbody-Based Diet Recommendation System
 
 결과적으로 사용자 중심의 맞춤형 건강 관리 환경을 제공함으로써 
 편의성과 활용도를 높이고, 건강 관리의 효율성을 향상시키는 효과를 기대할 수 있다.
+
+
+---
+
+## 2. System Context Diagram
+
+<img width="700" alt="System Context Diagram" src="" />
+
+### User
+사용자는 시스템을 이용하는 일반 사용자이다. 사용자는 회원가입 및 로그인 후 자신의 기본 정보와 인바디 데이터를 입력할 수 있다. 또한 건강 목표를 설정하고, 추천 식단을 조회하며, 하루 동안 섭취한 식단을 기록할 수 있다. 사용자는 기록된 식단 내역과 피드백 정보를 통해 자신의 식습관과 건강 상태를 확인할 수 있다.
+
+### System
+System은 사용자의 인바디 정보와 건강 목표를 기반으로 맞춤형 식단을 추천하고 피드백을 제공하는 핵심 시스템이다. 사용자가 입력한 신체 정보와 식단 기록을 저장 및 분석하며, 추천 규칙에 따라 적절한 식단 정보를 사용자에게 제공한다.
+
+### Administrator
+Administrator는 시스템 내 사용자 정보, 식단 추천 데이터, 피드백 규칙을 관리하는 관리자이다.
+
+### Inbody Data Source
+사용자의 체중, 체지방률 등의 신체 정보를 제공하는 데이터이다.
+
+### Diet Database
+식단 및 영양 정보를 저장하는 데이터베이스이다.
+
+### Meal Record Database
+사용자의 식단 기록을 저장하는 데이터베이스이다.
+
+### 주요 기능
+- 회원가입(Register)
+- 로그인(Login)
+- 인바디 정보 입력(Input Inbody Data)
+- 건강 목표 설정(Set Health Goal)
+- 추천 식단 조회(View Diet Recommendation)
+- 식단 기록(Record Daily Meal)
+- 피드백 조회(View Feedback)
