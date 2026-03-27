@@ -91,3 +91,66 @@ Administrator는 시스템 내 사용자 정보, 식단 추천 데이터, 피드
 - 추천 식단 조회(View Diet Recommendation)
 - 식단 기록(Record Daily Meal)
 - 피드백 조회(View Feedback)
+
+
+## 3. Use Case List
+
+1) Register  
+**Actor** User  
+**Description** 사용자가 시스템 이용을 위해 회원가입을 한다.
+
+2) Login  
+**Actor** User  
+**Description** 사용자가 아이디와 비밀번호를 입력하여 로그인한다.
+
+3) Manage Profile  
+**Actor** User  
+**Description** 사용자가 자신의 기본 정보(나이, 성별, 키, 몸무게 등)를 조회하고 수정한다.
+
+4) Input Inbody Data  
+**Actor** User  
+**Description** 사용자가 인바디 측정 결과(체중, 체지방량 등)를 입력한다.
+
+5) Update Inbody Data  
+**Actor** User  
+**Description** 사용자가 변경된 신체 정보를 반영하기 위해 인바디 데이터를 수정한다.
+
+6) Set Health Goal  
+**Actor** User  
+**Description** 사용자가 체중 감량, 근육 증가, 건강 유지 등의 목표를 설정한다.
+
+7) View Diet Recommendation  
+**Actor** User  
+**Description** 시스템이 사용자 정보 기반으로 추천 식단을 제공하고 사용자가 이를 조회한다.
+
+8) Record Daily Meal  
+**Actor** User  
+**Description** 사용자가 하루 동안 섭취한 식단을 기록한다.
+
+9) View Meal History  
+**Actor** User  
+**Description** 사용자가 이전에 기록한 식단 내역을 조회한다.
+
+10) View Feedback  
+**Actor** User  
+**Description** 사용자가 식단 기록과 목표를 기반으로 제공되는 영양 피드백을 확인한다.
+
+11) Save Recommended Meal Plan  
+**Actor** User  
+**Description** 사용자가 추천받은 식단을 저장한다.
+
+12) Delete Meal Record  
+**Actor** User  
+**Description** 사용자가 잘못 입력한 식단 기록을 삭제한다.
+
+13) Manage User Data  
+**Actor** Administrator  
+**Description** 관리자가 사용자 계정 및 정보를 관리한다.
+
+14) Manage Diet Data  
+**Actor** Administrator  
+**Description** 관리자가 식단 및 영양 데이터를 추가, 수정, 삭제한다.
+
+15) Manage Feedback Rules  
+**Actor** Administrator  
+**Description** 관리자가 피드백 제공 기준 및 규칙을 관리한다.
