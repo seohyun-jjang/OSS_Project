@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inbody-Based Diet Recommendation System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">I</span>
+          <div>
+            <strong>Inbody Diet</strong>
+            <span>Recommendation System</span>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-item active" data-view="dashboard" title="대시보드">
+            <span>⌂</span>
+            <b>Dashboard</b>
+          </button>
+          <button class="nav-item" data-view="inbody" title="인바디 입력">
+            <span>＋</span>
+            <b>InBody</b>
+          </button>
+          <button class="nav-item" data-view="goal" title="목표 설정">
+            <span>◎</span>
+            <b>Goal</b>
+          </button>
+          <button class="nav-item" data-view="recommend" title="추천 식단">
+            <span>▤</span>
+            <b>Recommend</b>
+          </button>
+          <button class="nav-item" data-view="meal" title="식사 기록">
+            <span>✎</span>
+            <b>Meal</b>
+          </button>
+          <button class="nav-item" data-view="feedback" title="피드백">
+            <span>✓</span>
+            <b>Feedback</b>
+          </button>
+          <button class="nav-item" data-view="admin" title="관리자">
+            <span>⚙</span>
+            <b>Admin</b>
+          </button>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <section class="auth-screen" id="auth-screen">
+          <div class="auth-media" aria-hidden="true">
+            <div class="body-card">
+              <span>Body Composition</span>
+              <strong>72 kg</strong>
+              <small>Weight</small>
+            </div>
+            <div class="body-card">
+              <span>Goal Tracking</span>
+              <strong>65 kg</strong>
+              <small>Target Weight</small>
+            </div>
+            <div class="body-card wide">
+              <span>Diet Recommendation</span>
+              <strong>1,700 kcal</strong>
+              <small>Personalized daily meal plan</small>
+            </div>
+          </div>
+          <div class="auth-panel">
+            <h1>Inbody-Based Diet Recommendation System</h1>
+            <p>신체 구성 데이터와 건강 목표를 기반으로 맞춤 식단과 영양 피드백을 제공합니다.</p>
+
+            <div class="tabs" role="tablist">
+              <button class="tab active" id="login-tab" type="button">Login</button>
+              <button class="tab" id="register-tab" type="button">Register</button>
+            </div>
+
+            <form class="auth-form" id="login-form">
+              <label>
+                ID
+                <input id="login-id" type="text" value="student" autocomplete="username" />
+              </label>
+              <label>
+                Password
+                <input id="login-password" type="password" value="1234" autocomplete="current-password" />
+              </label>
+              <button class="primary-button" type="submit">Login</button>
+            </form>
+
+            <form class="auth-form hidden" id="register-form">
+              <label>
+                ID
+                <input id="register-id" type="text" required />
+              </label>
+              <label>
+                Name
+                <input id="register-name" type="text" required />
+              </label>
+              <label>
+                E-mail
+                <input id="register-email" type="email" required />
+              </label>
+              <label>
+                Password
+                <input id="register-password" type="password" required />
+              </label>
+              <button class="primary-button" type="submit">Complete Register</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="workspace hidden" id="workspace">
+          <header class="topbar">
+            <div>
+              <span class="eyebrow">Implementation Phase</span>
+              <h2 id="view-title">Dashboard</h2>
+            </div>
+            <div class="user-chip">
+              <span id="current-user">student</span>
+              <button id="logout-button" type="button">Logout</button>
+            </div>
+          </header>
+
+          <section class="view active" id="dashboard-view">
+            <div class="summary-grid">
+              <article class="metric">
+                <span>Weight</span>
+                <strong id="metric-weight">72 kg</strong>
+              </article>
+              <article class="metric">
+                <span>Body Fat</span>
+                <strong id="metric-fat">24%</strong>
+              </article>
+              <article class="metric">
+                <span>Muscle Mass</span>
+                <strong id="metric-muscle">31 kg</strong>
+              </article>
+              <article class="metric">
+                <span>Goal</span>
+                <strong id="metric-goal">Weight Loss</strong>
+              </article>
+            </div>
+
+            <div class="dashboard-layout">
+              <article class="panel">
+                <div class="panel-header">
+                  <h3>Recommended Meal Plan</h3>
+                  <button class="text-button" data-view-jump="recommend" type="button">Open</button>
+                </div>
+                <div class="meal-plan" id="dashboard-plan"></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-header">
+                  <h3>Recent Meals</h3>
+                  <button class="text-button" data-view-jump="meal" type="button">Record</button>
+                </div>
+                <ul class="meal-list" id="recent-meals"></ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" id="inbody-view">
+            <form class="form-grid panel" id="inbody-form">
+              <label>
+                Weight (kg)
+                <input id="weight" type="number" min="20" max="250" step="0.1" required />
+              </label>
+              <label>
+                Body Fat Rate (%)
+                <input id="body-fat" type="number" min="3" max="70" step="0.1" required />
+              </label>
+              <label>
+                Muscle Mass (kg)
+                <input id="muscle-mass" type="number" min="5" max="100" step="0.1" required />
+              </label>
+              <label>
+                Height (cm)
+                <input id="height" type="number" min="100" max="230" step="0.1" required />
+              </label>
+              <button class="primary-button" type="submit">Save InBody Data</button>
+            </form>
+          </section>
+
+          <section class="view" id="goal-view">
+            <form class="form-grid panel" id="goal-form">
+              <label>
+                Health Goal
+                <select id="goal-type">
+                  <option>Weight Loss</option>
+                  <option>Muscle Gain</option>
+                  <option>Maintain Health</option>
+                </select>
+              </label>
+              <label>
+                Target Weight (kg)
+                <input id="target-weight" type="number" min="20" max="250" step="0.1" required />
+              </label>
+              <label>
+                Activity Level
+                <select id="activity-level">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </label>
+              <button class="primary-button" type="submit">Save Health Goal</button>
+            </form>
+          </section>
+
+          <section class="view" id="recommend-view">
+            <article class="panel">
+              <div class="panel-header">
+                <h3>View Diet Recommendation</h3>
+                <button class="primary-button compact" id="save-plan-button" type="button">Save Plan</button>
+              </div>
+              <div class="recommend-layout">
+                <div class="meal-plan large" id="recommend-plan"></div>
+                <aside class="analysis-box" id="recommend-analysis"></aside>
+              </div>
+            </article>
+          </section>
+
+          <section class="view" id="meal-view">
+            <div class="split-layout">
+              <form class="form-grid panel" id="meal-form">
+                <label>
+                  Meal Type
+                  <select id="meal-type">
+                    <option>Breakfast</option>
+                    <option>Lunch</option>
+                    <option>Dinner</option>
+                    <option>Snack</option>
+                  </select>
+                </label>
+                <label>
+                  Food Name
+                  <input id="food-name" type="text" placeholder="Chicken salad" required />
+                </label>
+                <label>
+                  Calories
+                  <input id="calories" type="number" min="0" max="3000" required />
+                </label>
+                <label>
+                  Protein (g)
+                  <input id="protein" type="number" min="0" max="300" value="20" required />
+                </label>
+                <button class="primary-button" type="submit">Save Meal Record</button>
+              </form>
+
+              <article class="panel">
+                <div class="panel-header">
+                  <h3>Meal History</h3>
+                  <span id="daily-calories">0 kcal</span>
+                </div>
+                <ul class="meal-list detailed" id="meal-history"></ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" id="feedback-view">
+            <article class="panel">
+              <h3>Nutrition Feedback</h3>
+              <div class="feedback-list" id="feedback-list"></div>
+            </article>
+          </section>
+
+          <section class="view" id="admin-view">
+            <div class="admin-grid">
+              <article class="panel">
+                <h3>Manage User Data</h3>
+                <table>
+                  <tbody id="admin-user-data"></tbody>
+                </table>
+              </article>
+              <article class="panel">
+                <h3>Manage Diet Data</h3>
+                <ul class="rule-list" id="admin-diet-data"></ul>
+              </article>
+              <article class="panel">
+                <h3>Manage Feedback Rules</h3>
+                <ul class="rule-list" id="admin-rules"></ul>
+              </article>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
