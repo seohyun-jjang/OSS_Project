@@ -48,12 +48,6 @@ Inbody-Based Diet Recommendation System은 사용자의 InBody 신체 구성 데
 
 기존 식단 관리 서비스가 단순 칼로리 계산이나 음식 기록 중심으로 동작하는 한계를 보완하기 위해, 체중, 체지방률, 골격근량, 활동 수준, 건강 목표를 함께 고려하도록 설계했습니다.
 
-## 프로젝트 정보
-
-- Student No: 22411998
-- Name: 장서현
-- GitHub Repository: https://github.com/seohyun-jjang/OSS_Project
-- Website URL: https://seohyun-jjang.github.io/OSS_Project/
 
 ## 주요 기능
 
@@ -77,28 +71,6 @@ styles.css
 app.js
 ```
 
-## 실행 방법
-
-저장소를 clone하거나 다운로드한 뒤 `index.html` 파일을 브라우저에서 실행합니다.
-
-```bash
-git clone https://github.com/seohyun-jjang/OSS_Project.git
-cd OSS_Project
-```
-
-또는 GitHub Pages 주소로 접속합니다.
-
-```text
-https://seohyun-jjang.github.io/OSS_Project/
-```
-
-## 제출 파일
-
-Implementation phase 제출용 압축파일:
-
-```text
-Implementation_22411998.zip
-```
 
 압축파일에는 웹 구현에 필요한 아래 세 파일만 포함되어 있습니다.
 
